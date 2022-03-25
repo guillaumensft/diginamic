@@ -1,0 +1,13 @@
+{% extends 'site/base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+<h1> Page d'accueil
+</h1>
+                        <a class="" href="{% url 'account:logout' %}"> Se déconnecter</a>
+                        <a class="" href="{% url 'account:signup' %}"> Se connecter</a>
+                        <a class="" href="{% url 'account:register' %}"> S'inscrire</a>
+{% endblock content %}
