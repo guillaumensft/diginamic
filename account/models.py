@@ -16,3 +16,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user) or ""
+
+    def get_absolute_url(self):
+        return Profile('blog:profile-list', kwargs={'slug': self.slug})
+

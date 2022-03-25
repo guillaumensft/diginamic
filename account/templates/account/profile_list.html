@@ -1,0 +1,24 @@
+{% extends 'site/base.html' %}
+
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="row m-5">
+        {% for each in object_list %}
+
+            <div class="col-3 p-3">
+                <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ each.user }}</h5>
+                        <a href="{% url 'account:profile-details' pk=each.pk %}" class="btn btn-primary">consulter</a>
+                      </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock content %}

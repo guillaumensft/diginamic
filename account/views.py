@@ -12,11 +12,11 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, V
 from django.contrib.auth.models import AbstractUser, Group
 
 
-from .forms import UserRegistrationForm, UserLoginForm
+from .forms import UserRegistrationForm, UserLoginForm, ProfileUpdateForm
 
 from django.contrib.auth.models import AbstractUser, Group
 
-from .models import User
+from .models import User, Profile
 
 
 from . import forms
@@ -45,7 +45,7 @@ class UserCreateView(View):
     def get(self, request):
         context = {}
         context['form'] = UserRegistrationForm() # equivaut à context = {'form': UserLoginForm()}
-        return render(request, 'signup.html', context)
+        return render(request, 'account/signup.html', context)
 #template_name=self.html_template
 
     def post(self, request):
@@ -77,7 +77,7 @@ class UserCreateView(View):
             #user.groups.add(group)
             auth.login(request, user)
             return redirect('account:index')
-        return render(request, 'signup.html', context)
+        return render(request, 'account/signup.html', context)
 
 
 
@@ -126,3 +126,17 @@ class UserLogoutView(View):
         else:
             messages.error(request, "vous n'avez pas été déco")
             return redirect('/')
+
+
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    form_class = ProfileUpdateForm
+    template_name = "account/profile_update.html"
+
+class ProfileDetailsView(DetailView):
+    model = Profile
+    template_name = "account/profile_details.html"
+
+class ProfileListView(ListView):
+    model = Profile
+    template_name = "account/profile_list.html"
