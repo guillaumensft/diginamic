@@ -133,6 +133,10 @@ class ProfileUpdateView(UpdateView):
     form_class = ProfileUpdateForm
     template_name = "account/profile_update.html"
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 class ProfileDetailsView(DetailView):
     model = Profile
     template_name = "account/profile_details.html"
@@ -140,3 +144,13 @@ class ProfileDetailsView(DetailView):
 class ProfileListView(ListView):
     model = Profile
     template_name = "account/profile_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.all()
+        return context
+
+class ProfileRefreshListView(ListView):
+    model = Profile
+    template_name = "account/profile_list.html"
+

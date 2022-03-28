@@ -15,15 +15,12 @@
                     <h2> <strong>{{ object.first_name }}</strong></h2>
                     <h2> <strong>{{ object.last_name }}</strong></h2>
                     <p>{{ object.bio }}</p>
-
-                    <div class="card-footer">
-                        <!--
-                        <a class="btn btn-info" href="{% url 'account:profile-update' slug:object.slug %}">Editer</a>
-                        -->
-                        <a class="btn btn-danger" href="{% url 'account:profile-list' %}">Retour</a>
-                    </div>
             </div>
 
+                    <div class="card-footer">
+                        <a class="btn btn-info" href="{% url 'account:profile-update' slug=object.slug %}">Editer</a>
+                        <a class="btn btn-danger" href="{% url 'account:profile-list' %}">Retour</a>
+                    </div>
         </div>
 
     </div>

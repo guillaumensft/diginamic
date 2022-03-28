@@ -13,7 +13,7 @@
                 <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">{{ each.user }}</h5>
-                        <a href="{% url 'account:profile-details' pk=each.pk %}" class="btn btn-primary">consulter</a>
+                        <a href="{% url 'account:profile-details' slug=each.slug %}" class="btn btn-primary">consulter</a>
                       </div>
                 </div>
             </div>

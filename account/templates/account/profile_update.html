@@ -11,7 +11,7 @@
         <div class="card">
 
             <div class="card-body">
-                <a class="btn btn-danger" href="{% url 'account:profile-details' %}">Retour</a>
+                <a class="btn btn-danger" href="{% url 'account:profile-details' slug=object.slug %}">Retour</a>
                  <form method="post">
                     {% csrf_token %}
                     {{ form|crispy }}
