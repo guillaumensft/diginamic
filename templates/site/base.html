@@ -5,8 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Questions & Answers </title>
+
         {% include "site/css.html" %}
 </head>
+{% include "site/navbar.html" %}
 <body>
 
 <div class="mt-5 pt-5">
@@ -21,9 +23,6 @@
     {% endfor %}
 {% endif %}
 </div>
-
-    <h5> CACA</h5>
-    <h1> Ceci est une phrase </h1>
         {% block content %}
 
         {% endblock content %}

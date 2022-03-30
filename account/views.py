@@ -37,17 +37,15 @@ from . import forms
 #
 #    return render(request, 'templates/signup.html', context = {'form' : form})
 class Index(TemplateView):
-    template_name = 'home.html'
+    template_name = 'account/home.html'
 
 
 class UserCreateView(View):
-
     def get(self, request):
         context = {}
         context['form'] = UserRegistrationForm() # equivaut à context = {'form': UserLoginForm()}
-        return render(request, 'account/signup.html', context)
+        return render(request, 'account/signin.html', context)
 #template_name=self.html_template
-
     def post(self, request):
         context = {}
         context['form'] = UserRegistrationForm()
@@ -77,12 +75,14 @@ class UserCreateView(View):
             #user.groups.add(group)
             auth.login(request, user)
             return redirect('account:index')
-        return render(request, 'account/signup.html', context)
+        return render(request, 'account/signin.html', context)
+    def createProfile(sender, **kwargs):
+        print("hello")
 
 
 
 class UserLoginView(View):
-    html_template = 'login.html'
+    html_template = 'account/login.html'
 
     def get(self, request):
         context = {}
