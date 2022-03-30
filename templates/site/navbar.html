@@ -24,10 +24,12 @@
                   Utilisateur
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'account:register' %}">S'inscrire</a>
-                  <a class="dropdown-item" href="{% url 'account:signup' %}">Se connecter</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{% url 'account:logout' %}">Se déconnecter</a>
+                    <a class="dropdown-item" href="{% url 'account:register' %}">S'inscrire</a>
+                    <a class="dropdown-item" href="{% url 'account:signup' %}">Se connecter</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'account:profile-list' %}">Liste des profils</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'account:logout' %}">Se déconnecter</a>
                 </div>
               </li>
             </ul>
@@ -42,15 +44,16 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
-              {% comment %} <li class="nav-item active">
-                <a class="nav-link waves-effect" href="/">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link waves-effect" href="/checkout">
-                Checkout</a>
-              </li> {% endcomment %}
+                {% comment %}
+                    <li class="nav-item active">
+                        <a class="nav-link waves-effect" href="/">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="/checkout">Checkout</a>
+                    </li>
+                {% endcomment %}
             </ul>
       </div>
     </div>
