@@ -27,4 +27,3 @@ class Profile(models.Model):
         else:
             self.slug = slugify(str(self.user) + get_random_string(9))
             super(Profile, self).save(*args, **kwargs)
-

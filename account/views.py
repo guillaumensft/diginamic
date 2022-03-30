@@ -153,4 +153,3 @@ class ProfileListView(ListView):
 class ProfileRefreshListView(ListView):
     model = Profile
     template_name = "account/profile_list.html"
-
