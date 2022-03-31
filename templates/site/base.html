@@ -5,27 +5,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Questions & Answers </title>
+
         {% include "site/css.html" %}
 </head>
+{% include "site/navbar.html" %}
 <body>
 
-<div class="mt-5 pt-5">
-{% if messages %}
-    {% for message in messages %}
-    <div class="{{ message.tags }} alert-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div class="mt-5 pt-5">
+        {% if messages %}
+            {% for message in messages %}
+            <div class="{{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row">
+            <div class="col-10">
+            {% block content %}
+            {% endblock content %}
+            </div>
+            <div class="col-2">
+                {% include "site/sidebar.html" %}
+            </div>
+        </div>
     </div>
-    {% endfor %}
-{% endif %}
-</div>
 
-    <h5> CACA</h5>
-    <h1> Ceci est une phrase </h1>
-        {% block content %}
-
-        {% endblock content %}
 </body>
 </html>
